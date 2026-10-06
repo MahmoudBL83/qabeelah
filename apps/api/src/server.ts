@@ -56,6 +56,30 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 
+let mongoConnection: Promise<typeof mongoose> | undefined;
+
+if (process.env.VERCEL) {
+  app.use(async (_req, res, next) => {
+    const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+    if (!uri) {
+      res.status(503).json({ error: 'Database is not configured' });
+      return;
+    }
+
+    try {
+      mongoConnection ??= mongoose.connect(uri, { serverSelectionTimeoutMS: 5000 }).catch((error) => {
+        mongoConnection = undefined;
+        throw error;
+      });
+      await mongoConnection;
+      next();
+    } catch (error) {
+      console.error('[API] MongoDB connection failed:', error);
+      res.status(503).json({ error: 'Database is unavailable' });
+    }
+  });
+}
+
 // Redirect canonical base-domain paths (/slug/...) to verified custom domains
 app.use(redirectToCustomDomain);
 
@@ -151,7 +175,8 @@ const startServer = async () => {
 };
 
 export { app, startServer };
+export default app;
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   startServer();
 }
