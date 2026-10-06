@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18
       - name: Install
-        run: corepack enable && pnpm install --frozen-lockfile
+        run: corepack enable && pnpm install --frozen-lockfile --ignore-scripts
       - name: Run API tests
         run: pnpm --filter api build && pnpm --filter api test
 
@@ -29,6 +29,6 @@ jobs:
         with:
           node-version: 18
       - name: Install
-        run: corepack enable && pnpm install --frozen-lockfile
+        run: corepack enable && pnpm install --frozen-lockfile --ignore-scripts
       - name: Build web
         run: pnpm --filter web build
