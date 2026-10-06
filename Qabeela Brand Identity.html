@@ -1,0 +1,1846 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>قبيلة — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#16130E;
+    --ink-2:#262119;
+    --cream:#F2EADA;
+    --cream-2:#EAE0CC;
+    --cream-3:#E1D5BB;
+    --ochre:#B58543;
+    --ochre-deep:#8A6429;
+    --clay:#A14A2E;
+    --moss:#4A5240;
+    --stone:#8C8275;
+    --line:rgba(22,19,14,.14);
+    --line-strong:rgba(22,19,14,.28);
+
+    --ar-display:"Reem Kufi", system-ui, sans-serif;
+    --ar-text:"IBM Plex Sans Arabic", system-ui, sans-serif;
+    --en-display:"Bricolage Grotesque", system-ui, sans-serif;
+    --en-text:"Manrope", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--ar-text);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"ss01","ss02";
+  }
+  ::selection{background:var(--ochre);color:var(--cream)}
+
+  /* ---------- shared layout ---------- */
+  section{
+    position:relative;
+    padding:120px 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+  .row{display:grid;gap:48px}
+  .grid-2{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  .grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:32px}
+
+  /* section header strip — section number + label + EN counter-label */
+  .strip{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    padding-bottom:24px;
+    margin-bottom:64px;
+    border-bottom:1px solid var(--line-strong);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .strip .num{color:var(--ochre-deep)}
+  .strip .label-ar{font-family:var(--ar-text);font-size:13px;letter-spacing:0}
+  .strip .label-en{direction:ltr}
+
+  h2.ar-h{
+    font-family:var(--ar-display);
+    font-weight:700;
+    font-size:clamp(48px,6vw,84px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    margin:0 0 16px;
+  }
+  h2.ar-h .small{
+    display:block;
+    font-family:var(--en-display);
+    font-weight:400;
+    font-size:18px;
+    letter-spacing:.04em;
+    color:var(--stone);
+    margin-top:18px;
+    direction:ltr;
+    text-align:right;
+  }
+  p.lede{
+    font-family:var(--ar-text);
+    font-weight:400;
+    font-size:22px;
+    line-height:1.75;
+    max-width:60ch;
+    color:var(--ink-2);
+    text-wrap:pretty;
+  }
+  p.lede.en{font-family:var(--en-text);direction:ltr;text-align:left}
+
+  .kbd-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ochre-deep);
+  }
+  .kbd-tag::before{content:"";width:6px;height:6px;background:var(--ochre);transform:rotate(45deg)}
+
+  /* ============== 01 · COVER ============== */
+  .cover{
+    min-height:100vh;
+    padding:48px 48px 64px;
+    display:flex;flex-direction:column;
+    background:
+      radial-gradient(60% 60% at 50% 55%, rgba(181,133,67,.06), transparent 70%),
+      var(--cream);
+  }
+  .cover .top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .cover .top .right{direction:ltr;text-align:left}
+  .cover .stage{flex:1;display:grid;place-items:center}
+  .cover .mark-svg{width:min(72vw,860px);height:auto}
+  .cover .bottom{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-2);
+  }
+  .cover .bottom .doc{direction:ltr}
+  .cover .crosshair{position:absolute;width:18px;height:18px;color:var(--ink)}
+  .cover .crosshair::before,.cover .crosshair::after{
+    content:"";position:absolute;background:currentColor
+  }
+  .cover .crosshair::before{left:50%;top:0;bottom:0;width:1px;transform:translateX(-.5px)}
+  .cover .crosshair::after{top:50%;left:0;right:0;height:1px;transform:translateY(-.5px)}
+  .cover .ch-tl{top:24px;left:24px}
+  .cover .ch-tr{top:24px;right:24px}
+  .cover .ch-bl{bottom:24px;left:24px}
+  .cover .ch-br{bottom:24px;right:24px}
+
+  /* ============== mark SVG — the refined wordmark ============== */
+  /* Built using Reem Kufi inside SVG <text> + crisp diamond accents */
+  /* CSS custom properties INHERIT through <use> shadow trees; descendant
+     selectors do NOT. Drive all wordmark colors via these inheritable vars. */
+  .word-mark{
+    font-family:var(--ar-display);
+    font-weight:700;
+    font-size:300px;
+    line-height:.9;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    fill:var(--wm-fill, var(--ink));
+  }
+  .word-mark-en{
+    font-family:var(--en-display);
+    font-weight:500;
+    letter-spacing:.5em;
+    text-transform:uppercase;
+    fill:var(--wm-fill, var(--ink));
+  }
+  .diamond{fill:var(--wm-diamond, var(--ochre))}
+
+  /* ============== 02 · MANIFESTO ============== */
+  .manifesto{background:var(--cream)}
+  .manifesto .grid-12{align-items:start}
+  .manifesto .lead{grid-column:span 7}
+  .manifesto .side{grid-column:span 5;padding-top:18px}
+  .manifesto blockquote{
+    margin:0;
+    font-family:var(--ar-display);
+    font-weight:500;
+    font-size:clamp(34px,3.4vw,52px);
+    line-height:1.28;
+    color:var(--ink);
+    letter-spacing:-.005em;
+    text-wrap:balance;
+  }
+  .manifesto blockquote::before{
+    content:"";display:inline-block;
+    width:14px;height:14px;background:var(--ochre);
+    transform:rotate(45deg);
+    margin-inline-start:0;margin-inline-end:18px;
+    vertical-align:middle;
+    translate:0 -6px;
+  }
+  .side .pair{
+    display:grid;grid-template-columns:auto 1fr;gap:14px 22px;
+    border-top:1px solid var(--line);padding-top:18px;margin-top:18px;
+  }
+  .side .pair:first-of-type{border-top:0;margin-top:0;padding-top:0}
+  .side .pair dt{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ochre-deep);padding-top:4px;
+  }
+  .side .pair dd{
+    margin:0;font-family:var(--ar-text);font-size:16px;line-height:1.7;color:var(--ink-2)
+  }
+  .side .pair.en dd{font-family:var(--en-text);direction:ltr;text-align:left}
+
+  /* ============== 03 · THE MARK ============== */
+  .mark{background:var(--cream-2)}
+  .mark .display{
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:96px 48px;
+    display:grid;place-items:center;
+    position:relative;
+  }
+  .mark .display svg{width:min(800px,80%);height:auto}
+  .mark .display .corner{
+    position:absolute;width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)
+  }
+  .mark .display .corner.tl{top:16px;left:16px}
+  .mark .display .corner.tr{top:16px;right:16px}
+  .mark .display .corner.bl{bottom:16px;left:16px}
+  .mark .display .corner.br{bottom:16px;right:16px}
+
+  .mark .notes{
+    margin-top:32px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .mark .notes .note{
+    border-top:1px solid var(--line-strong);
+    padding-top:14px;
+  }
+  .mark .notes .k{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ochre-deep);margin-bottom:8px;
+  }
+  .mark .notes .v{font-family:var(--ar-text);font-size:15px;line-height:1.6;color:var(--ink-2)}
+  .mark .notes .v.en{font-family:var(--en-text);direction:ltr;text-align:left;font-size:14px}
+
+  /* ============== 04 · CONSTRUCTION ============== */
+  .construct{background:var(--cream)}
+  .construct .stage{
+    background:var(--cream-2);
+    border:1px solid var(--line);
+    padding:60px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .construct .grid-overlay{
+    position:absolute;inset:60px 48px;pointer-events:none;
+    background-image:
+      linear-gradient(to right, rgba(22,19,14,.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(22,19,14,.07) 1px, transparent 1px);
+    background-size: calc(100% / 24) calc(100% / 12);
+  }
+  .construct .axes{
+    position:absolute;inset:60px 48px;pointer-events:none;
+  }
+  .construct .axes::before,.construct .axes::after{
+    content:"";position:absolute;background:var(--ochre);opacity:.6;
+  }
+  .construct .axes::before{top:50%;left:0;right:0;height:1px}
+  .construct .axes::after{left:50%;top:0;bottom:0;width:1px}
+  .construct svg{position:relative;width:100%;height:auto;display:block}
+
+  .construct .legend{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px
+  }
+  .construct .legend .item{
+    border-top:1px solid var(--line-strong);padding-top:16px;
+  }
+  .construct .legend .num{
+    font-family:var(--en-display);font-weight:600;font-size:42px;color:var(--ochre-deep);line-height:1;
+    direction:ltr;text-align:right;
+  }
+  .construct .legend .lbl{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink);margin-top:10px;
+  }
+  .construct .legend .desc{
+    font-family:var(--ar-text);font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.6
+  }
+
+  /* ============== 05 · VARIATIONS ============== */
+  .variations{background:var(--cream-2)}
+  .var-grid{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:16px;
+  }
+  .var{
+    border:1px solid var(--line);
+    aspect-ratio:1/1;
+    display:grid;place-items:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .var .lbl{
+    position:absolute;bottom:14px;right:14px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stone);
+  }
+  .var .lbl-en{
+    position:absolute;bottom:14px;left:14px;direction:ltr;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stone);
+  }
+  .var svg{width:70%;height:auto}
+  .var.cream{background:var(--cream)}
+  .var.cream-2{background:var(--cream-3)}
+  .var.ink{background:var(--ink);--wm-fill:var(--cream);--wm-diamond:var(--ochre)}
+  .var.ochre{background:var(--ochre);--wm-fill:var(--ink);--wm-diamond:var(--ink)}
+  .var.mono-ink{--wm-diamond:var(--ink)}
+  .var.mono-cream{background:var(--ink);--wm-fill:var(--cream);--wm-diamond:var(--cream)}
+  .var.span-2{grid-column:span 2}
+  .var.span-3{grid-column:span 3}
+
+  .var.mark-only svg{width:38%}
+
+  /* additional colorways — all driven by inheritable --wm-* vars */
+  .var.clay-bg{background:var(--clay);--wm-fill:var(--cream);--wm-diamond:var(--ochre)}
+  .var.moss-bg{background:var(--moss);--wm-fill:var(--cream);--wm-diamond:var(--ochre)}
+  .var.cream-ochre{background:var(--cream);--wm-fill:var(--ochre-deep);--wm-diamond:var(--clay)}
+  .var.ink-clay{background:var(--ink);--wm-fill:var(--cream);--wm-diamond:var(--clay)}
+  .var.ochre-ink{background:var(--ochre);--wm-fill:var(--cream);--wm-diamond:var(--ink)}
+  .var.cream-moss{background:var(--cream-2);--wm-fill:var(--moss);--wm-diamond:var(--ochre)}
+
+  /* tweakable cover wordmark — --wm-* vars set on .cover, inherit into <use> */
+  .cover{
+    background:var(--cover-bg, var(--cream));
+    --wm-fill:var(--cover-word, var(--ink));
+    --wm-diamond:var(--cover-diamond, var(--ochre));
+  }
+  .cover.dark-bg .top,.cover.dark-bg .bottom,.cover.dark-bg .crosshair{color:var(--cream)}
+  .cover.dark-bg .bottom > div > div:first-child,
+  .cover.dark-bg .top > div > div:first-child{color:var(--cream)}
+  .cover.dark-bg .bottom > div > div,
+  .cover.dark-bg .top > div > div{color:rgba(242,234,218,.65)}
+
+  /* Tweaks panel */
+  .tweaks{
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    width:308px;background:var(--cream);border:1px solid var(--line-strong);
+    box-shadow:0 24px 60px rgba(22,19,14,.18),0 2px 6px rgba(22,19,14,.08);
+    font-family:var(--ar-text);color:var(--ink);
+    transform-origin:bottom right;
+    display:none;
+  }
+  .tweaks.open{display:block}
+  .tweaks .head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 16px;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ochre-deep);cursor:grab;user-select:none;
+  }
+  .tweaks .head .x{
+    cursor:pointer;color:var(--ink);background:none;border:0;
+    font-size:18px;line-height:1;padding:2px 6px;font-family:inherit;
+  }
+  .tweaks .body{padding:16px}
+  .tweaks .section-label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--stone);margin-bottom:10px;
+  }
+  .tweaks .swatches-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px;
+  }
+  .tweaks .swatch{
+    border:1px solid var(--line);background:var(--cream);cursor:pointer;
+    padding:0;aspect-ratio:1.4/1;position:relative;
+    display:flex;flex-direction:column;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .tweaks .swatch:hover{transform:translateY(-1px);border-color:var(--ink)}
+  .tweaks .swatch.active{border-color:var(--ochre);border-width:2px;outline:1px solid var(--ochre)}
+  .tweaks .swatch .preview{flex:1;display:grid;place-items:center;position:relative}
+  .tweaks .swatch .preview .mini-word{
+    font-family:var(--ar-display);font-weight:700;font-size:20px;letter-spacing:-.02em;
+  }
+  .tweaks .swatch .preview .mini-dot{
+    position:absolute;top:6px;width:5px;height:5px;transform:rotate(45deg);
+  }
+  .tweaks .swatch .preview .mini-dot.l{left:18px}
+  .tweaks .swatch .preview .mini-dot.r{right:18px}
+  .tweaks .swatch .name{
+    font-family:var(--ar-text);font-size:11px;text-align:center;padding:4px 0;
+    border-top:1px solid var(--line);background:rgba(255,255,255,.4);color:var(--ink);
+  }
+  .tweaks-toggle{
+    position:fixed;bottom:24px;right:24px;z-index:9998;
+    background:var(--ink);color:var(--cream);border:0;
+    padding:12px 18px;cursor:pointer;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    box-shadow:0 12px 28px rgba(22,19,14,.2);
+    display:none;
+  }
+  .tweaks-toggle.visible{display:inline-flex;align-items:center;gap:8px}
+  .tweaks-toggle::before{content:"";width:7px;height:7px;background:var(--ochre);transform:rotate(45deg)}
+
+  /* ============== 06 · MISUSE ============== */
+  .misuse{background:var(--cream)}
+  .mis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mis{
+    aspect-ratio:1/1;
+    border:1px solid var(--line);
+    background:var(--cream-2);
+    display:grid;place-items:center;
+    position:relative;
+  }
+  .mis .x{
+    position:absolute;top:12px;left:12px;
+    width:22px;height:22px;border-radius:50%;
+    background:var(--clay);color:var(--cream);
+    display:grid;place-items:center;
+    font-family:var(--mono);font-size:14px;
+  }
+  .mis .cap{
+    position:absolute;bottom:12px;right:12px;left:12px;
+    font-family:var(--ar-text);font-size:12px;color:var(--ink-2)
+  }
+  .mis svg{width:62%}
+  .mis.skew svg{transform:skewX(-12deg)}
+  .mis.stretch svg{transform:scaleX(1.35)}
+  .mis.rotate svg{transform:rotate(-6deg)}
+  .mis.color svg{--wm-fill:#2E5C9A;--wm-diamond:#9A2E2E}
+
+  /* ============== 07 · CLEAR SPACE ============== */
+  .clearspace{background:var(--cream-2)}
+  .clearspace .stage{
+    background:var(--cream);padding:48px;border:1px solid var(--line);position:relative;
+    display:grid;place-items:center;
+  }
+  .cs-frame{
+    position:relative;padding:64px;
+    border:1px dashed var(--line-strong);
+  }
+  .cs-frame::before{
+    content:"X";position:absolute;top:8px;right:8px;
+    font-family:var(--mono);font-size:11px;color:var(--ochre-deep);letter-spacing:.14em
+  }
+  .cs-frame .inner{
+    border:1px dashed var(--ochre);padding:48px;
+  }
+  .cs-frame svg{width:min(540px,60vw);height:auto;display:block}
+
+  /* ============== 08 · COLOR ============== */
+  .palette{background:var(--ink);color:var(--cream)}
+  .palette .strip{color:var(--cream);border-bottom-color:rgba(242,234,218,.2)}
+  .palette .strip .num{color:var(--ochre)}
+  .palette h2.ar-h{color:var(--cream)}
+  .palette p.lede{color:rgba(242,234,218,.7)}
+
+  .swatches{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+    border:1px solid rgba(242,234,218,.14);
+  }
+  .sw{
+    aspect-ratio:3/4;
+    padding:20px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;
+    border-left:1px solid rgba(0,0,0,.08);
+  }
+  .sw:first-child{border-left:0}
+  .sw .name{
+    font-family:var(--ar-display);font-weight:600;font-size:22px;line-height:1;
+  }
+  .sw .name-en{
+    font-family:var(--en-display);font-weight:500;font-size:13px;
+    letter-spacing:.06em;text-transform:uppercase;direction:ltr;margin-top:4px;opacity:.75;
+  }
+  .sw .meta{font-family:var(--mono);font-size:10px;letter-spacing:.06em;line-height:1.7;direction:ltr;text-align:left}
+  .sw.dark{color:var(--cream)}
+  .sw.light{color:var(--ink)}
+  .sw .pill{
+    display:inline-block;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    padding:3px 7px;border:1px solid currentColor;text-transform:uppercase;width:fit-content;
+    opacity:.7;
+  }
+  .sw-ink{background:var(--ink)}
+  .sw-ochre{background:var(--ochre)}
+  .sw-clay{background:var(--clay)}
+  .sw-moss{background:var(--moss)}
+  .sw-stone{background:var(--stone)}
+  .sw-cream{background:var(--cream)}
+
+  .ratios{
+    margin-top:48px;
+    display:flex;height:14px;border:1px solid rgba(242,234,218,.14);
+  }
+  .ratios .seg{display:block}
+  .ratio-labels{
+    display:flex;justify-content:space-between;margin-top:10px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(242,234,218,.7);
+    direction:ltr;
+  }
+
+  /* ============== 09 · TYPE ============== */
+  .type{background:var(--cream)}
+  .type-row{
+    display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start;
+    padding:48px 0;border-top:1px solid var(--line);
+  }
+  .type-row:first-of-type{border-top:1px solid var(--line-strong)}
+  .type-row .meta{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ochre-deep);
+  }
+  .type-row .meta .name{
+    display:block;font-family:var(--en-display);font-weight:600;font-size:26px;
+    color:var(--ink);text-transform:none;letter-spacing:-.01em;margin-top:6px;
+  }
+  .type-row .meta .role{
+    display:block;font-family:var(--ar-text);font-size:14px;
+    color:var(--ink-2);text-transform:none;letter-spacing:0;margin-top:14px;line-height:1.6;
+  }
+  .specimen-ar-display{
+    font-family:var(--ar-display);font-weight:700;font-size:120px;
+    line-height:1;letter-spacing:-.02em;color:var(--ink);
+  }
+  .specimen-ar-text{
+    font-family:var(--ar-text);font-weight:400;font-size:22px;
+    line-height:1.85;color:var(--ink-2);max-width:60ch;text-wrap:pretty;
+  }
+  .specimen-en-display{
+    font-family:var(--en-display);font-weight:500;font-size:108px;
+    line-height:1;letter-spacing:-.02em;color:var(--ink);direction:ltr;text-align:left;
+  }
+  .specimen-en-text{
+    font-family:var(--en-text);font-weight:400;font-size:18px;
+    line-height:1.75;color:var(--ink-2);max-width:62ch;direction:ltr;text-align:left;
+  }
+  .glyph-row{
+    margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .glyph-row span{
+    border:1px solid var(--line);padding:14px 0;width:54px;text-align:center;
+    font-family:var(--ar-display);font-size:30px;
+  }
+  .glyph-row.en span{font-family:var(--en-display);font-weight:600;font-size:26px}
+
+  .scale-row{
+    margin-top:18px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;
+    border-top:1px solid var(--line);padding-top:18px;
+  }
+  .scale-row .item{
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--stone);
+    text-transform:uppercase;direction:ltr;text-align:left;
+  }
+  .scale-row .item .px{
+    display:block;font-family:var(--ar-display);font-weight:600;
+    font-size:22px;color:var(--ink);text-transform:none;letter-spacing:0;margin-top:6px;direction:rtl;text-align:right;
+  }
+
+  /* ============== 10 · PATTERN ============== */
+  .pattern{background:var(--cream)}
+  .pattern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pat{
+    aspect-ratio:1/1;border:1px solid var(--line);position:relative;overflow:hidden;
+  }
+  .pat .cap{
+    position:absolute;left:14px;bottom:12px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cream);
+    background:rgba(22,19,14,.6);padding:4px 8px;
+  }
+  .pat.light .cap{color:var(--ink);background:rgba(242,234,218,.7)}
+  .pat svg{width:100%;height:100%;display:block}
+
+  /* ============== 11 · APPLICATIONS ============== */
+  .apps{background:var(--cream-2)}
+  .apps-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+
+  .card{
+    aspect-ratio:1.62/1;
+    background:var(--cream);
+    padding:24px;
+    position:relative;
+    border:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .card.dark{background:var(--ink);color:var(--cream)}
+  .card.ochre{background:var(--ochre);color:var(--ink)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start}
+  .card .name{
+    font-family:var(--ar-display);font-weight:600;font-size:22px;line-height:1.1
+  }
+  .card .role{
+    font-family:var(--ar-text);font-size:13px;color:var(--ink-2);margin-top:2px
+  }
+  .card.dark .role{color:rgba(242,234,218,.7)}
+  .card .corner-mark{display:flex;gap:4px}
+  .card .corner-mark i{
+    display:block;width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)
+  }
+  .card.ochre .corner-mark i{background:var(--ink)}
+  .card .bottom{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;direction:ltr;text-align:left
+  }
+  .card .bottom .word{
+    font-family:var(--ar-display);font-weight:700;font-size:28px;direction:rtl;letter-spacing:-.01em
+  }
+
+  .bc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-column:span 6}
+
+  .pkg{
+    grid-column:span 6;
+    aspect-ratio:4/5;
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:36px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+  }
+  .pkg.ink{background:var(--ink);color:var(--cream)}
+  .pkg .top{display:flex;justify-content:space-between;align-items:flex-start}
+  .pkg .label-en{
+    font-family:var(--en-display);font-weight:500;font-size:11px;
+    letter-spacing:.3em;text-transform:uppercase;direction:ltr;
+  }
+  .pkg .stamp{
+    width:48px;height:48px;border:1px solid currentColor;border-radius:50%;
+    display:grid;place-items:center;
+    font-family:var(--ar-display);font-weight:700;font-size:18px;
+  }
+  .pkg .word{
+    font-family:var(--ar-display);font-weight:700;
+    font-size:96px;line-height:.9;letter-spacing:-.02em;
+  }
+  .pkg .bottom{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;direction:ltr;
+  }
+
+  .social{
+    grid-column:span 4;aspect-ratio:1/1;
+    border:1px solid var(--line);
+    position:relative;overflow:hidden;
+    padding:28px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .social.cream{background:var(--cream)}
+  .social.ink{background:var(--ink);color:var(--cream)}
+  .social.ochre{background:var(--ochre);color:var(--ink)}
+  .social .h{
+    font-family:var(--ar-display);font-weight:700;font-size:36px;line-height:1.1;letter-spacing:-.01em
+  }
+  .social .sub{
+    font-family:var(--ar-text);font-size:13px;line-height:1.6;color:inherit;opacity:.75;max-width:24ch
+  }
+  .social .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .social .badge::before{content:"";width:6px;height:6px;background:currentColor;transform:rotate(45deg)}
+
+  .sign{
+    grid-column:span 12;
+    aspect-ratio:3/1;
+    background:var(--ink);color:var(--cream);
+    border:1px solid var(--line);
+    display:grid;place-items:center;
+    position:relative;overflow:hidden;
+  }
+  .sign svg{width:48%;height:auto}
+  .sign .lbl{
+    position:absolute;left:18px;bottom:14px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:rgba(242,234,218,.6);
+    text-transform:uppercase;direction:ltr;
+  }
+  .sign .pattern-bg{
+    position:absolute;inset:0;opacity:.08;
+  }
+
+  /* ============== 12 · VOICE ============== */
+  .voice{background:var(--cream)}
+  .voice .grid-12{align-items:start}
+  .voice .lead{grid-column:span 5}
+  .voice .principles{grid-column:span 7}
+  .principle{
+    display:grid;grid-template-columns:48px 1fr;gap:24px;
+    padding:32px 0;border-top:1px solid var(--line);
+  }
+  .principle:first-child{border-top:1px solid var(--line-strong)}
+  .principle .n{
+    font-family:var(--en-display);font-weight:500;font-size:42px;color:var(--ochre-deep);line-height:1;direction:ltr;
+  }
+  .principle .title{
+    font-family:var(--ar-display);font-weight:600;font-size:28px;color:var(--ink);margin-bottom:8px;letter-spacing:-.005em;
+  }
+  .principle .title .en{
+    display:block;font-family:var(--en-display);font-weight:500;font-size:13px;
+    color:var(--stone);text-transform:uppercase;letter-spacing:.14em;margin-top:6px;direction:ltr;
+  }
+  .principle .body{
+    font-family:var(--ar-text);font-size:15px;line-height:1.75;color:var(--ink-2);max-width:60ch;
+  }
+  .voice .pair-row{
+    margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .voice .pair-row .col{
+    border:1px solid var(--line);padding:14px 16px;
+  }
+  .voice .pair-row .col.do{border-color:var(--moss);background:rgba(74,82,64,.06)}
+  .voice .pair-row .col.dont{border-color:var(--clay);background:rgba(161,74,46,.05)}
+  .voice .pair-row .k{
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;
+  }
+  .voice .pair-row .col.do .k{color:var(--moss)}
+  .voice .pair-row .col.dont .k{color:var(--clay)}
+  .voice .pair-row .v{font-family:var(--ar-text);font-size:14px;color:var(--ink-2);line-height:1.6}
+
+  /* ============== FOOTER ============== */
+  footer{
+    background:var(--ink);color:var(--cream);
+    padding:96px 64px 64px;
+  }
+  footer .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:end}
+  footer .colophon{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(242,234,218,.7);line-height:2;direction:ltr;
+  }
+  footer .colophon b{color:var(--cream);font-weight:500}
+  footer .mark-foot{--wm-fill:var(--cream);--wm-diamond:var(--ochre)}
+  footer .mark-foot svg{width:240px;height:auto}
+  .sign{--wm-fill:var(--cream);--wm-diamond:var(--ochre)}
+  footer .ar-foot{
+    font-family:var(--ar-display);font-weight:500;font-size:32px;line-height:1.3;
+  }
+  footer .ar-foot .ochre{color:var(--ochre)}
+
+  /* responsive */
+  @media (max-width:980px){
+    section{padding:80px 32px}
+    .grid-12{grid-template-columns:repeat(6,1fr)}
+    .manifesto .lead,.manifesto .side,.voice .lead,.voice .principles{grid-column:span 6}
+    .var-grid{grid-template-columns:repeat(3,1fr)}
+    .var.span-2,.var.span-3{grid-column:span 1}
+    .mis-grid{grid-template-columns:repeat(2,1fr)}
+    .swatches{grid-template-columns:repeat(3,1fr)}
+    .construct .legend,.mark .notes{grid-template-columns:repeat(2,1fr)}
+    .type-row{grid-template-columns:1fr}
+    .specimen-ar-display{font-size:80px}
+    .specimen-en-display{font-size:64px}
+    .apps-grid{grid-template-columns:repeat(6,1fr)}
+    .bc-row,.pkg{grid-column:span 6}
+    .social{grid-column:span 3}
+    footer{padding:64px 32px}
+    footer .wrap{grid-template-columns:1fr;gap:32px}
+  }
+</style>
+</head>
+<body data-screen-label="00 Brand Book">
+
+<!-- ============================================================
+     REUSABLE WORDMARK (inline SVG defs)
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Primary horizontal wordmark — Arabic + Latin lockup -->
+    <symbol id="wm-primary" viewBox="0 0 1000 360">
+      <!-- top diamond cluster on qaf -->
+      <g class="diamond">
+        <rect x="688" y="22" width="22" height="22" transform="rotate(45 699 33)"/>
+        <rect x="730" y="22" width="22" height="22" transform="rotate(45 741 33)"/>
+        <!-- top diamond cluster on ta marbuta -->
+        <rect x="226" y="22" width="22" height="22" transform="rotate(45 237 33)"/>
+        <rect x="268" y="22" width="22" height="22" transform="rotate(45 279 33)"/>
+      </g>
+      <!-- the word, set in Reem Kufi -->
+      <text x="500" y="225" text-anchor="middle" class="word-mark" font-size="280" font-weight="700">قبيلة</text>
+      <!-- bottom diamond clusters (ba + ya dots) -->
+      <g class="diamond">
+        <rect x="546" y="248" width="22" height="22" transform="rotate(45 557 259)"/>
+        <rect x="430" y="248" width="22" height="22" transform="rotate(45 441 259)"/>
+        <rect x="470" y="248" width="22" height="22" transform="rotate(45 481 259)"/>
+      </g>
+      <!-- Latin subtitle -->
+      <text x="500" y="315" text-anchor="middle" class="word-mark-en" font-size="22" letter-spacing="14">QABEELA</text>
+      <line x1="380" y1="338" x2="620" y2="338" stroke="currentColor" stroke-width="1" opacity=".2"/>
+    </symbol>
+
+    <!-- Word only (no Latin) -->
+    <symbol id="wm-word" viewBox="0 0 1000 280">
+      <g class="diamond">
+        <rect x="688" y="22" width="22" height="22" transform="rotate(45 699 33)"/>
+        <rect x="730" y="22" width="22" height="22" transform="rotate(45 741 33)"/>
+        <rect x="226" y="22" width="22" height="22" transform="rotate(45 237 33)"/>
+        <rect x="268" y="22" width="22" height="22" transform="rotate(45 279 33)"/>
+      </g>
+      <text x="500" y="225" text-anchor="middle" class="word-mark" font-size="280" font-weight="700">قبيلة</text>
+      <g class="diamond">
+        <rect x="546" y="248" width="22" height="22" transform="rotate(45 557 259)"/>
+        <rect x="430" y="248" width="22" height="22" transform="rotate(45 441 259)"/>
+        <rect x="470" y="248" width="22" height="22" transform="rotate(45 481 259)"/>
+      </g>
+    </symbol>
+
+    <!-- Mark only — the ق initial as monogram with the diamond cluster -->
+    <symbol id="wm-monogram" viewBox="0 0 360 360">
+      <g class="diamond">
+        <rect x="148" y="22" width="22" height="22" transform="rotate(45 159 33)"/>
+        <rect x="190" y="22" width="22" height="22" transform="rotate(45 201 33)"/>
+      </g>
+      <text x="180" y="270" text-anchor="middle" class="word-mark" font-size="320" font-weight="700">ق</text>
+    </symbol>
+
+    <!-- Vertical stacked lockup -->
+    <symbol id="wm-stack" viewBox="0 0 600 600">
+      <g class="diamond">
+        <rect x="378" y="92" width="22" height="22" transform="rotate(45 389 103)"/>
+        <rect x="420" y="92" width="22" height="22" transform="rotate(45 431 103)"/>
+        <rect x="158" y="92" width="22" height="22" transform="rotate(45 169 103)"/>
+        <rect x="200" y="92" width="22" height="22" transform="rotate(45 211 103)"/>
+      </g>
+      <text x="300" y="295" text-anchor="middle" class="word-mark" font-size="280" font-weight="700">قبيلة</text>
+      <g class="diamond">
+        <rect x="346" y="318" width="22" height="22" transform="rotate(45 357 329)"/>
+        <rect x="230" y="318" width="22" height="22" transform="rotate(45 241 329)"/>
+        <rect x="270" y="318" width="22" height="22" transform="rotate(45 281 329)"/>
+      </g>
+      <line x1="220" y1="400" x2="380" y2="400" stroke="currentColor" stroke-width="1" opacity=".25"/>
+      <text x="300" y="440" text-anchor="middle" class="word-mark-en" font-size="20" letter-spacing="14">QABEELA</text>
+      <text x="300" y="478" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="6" fill="currentColor" opacity=".55">EST · MMXXVI</text>
+    </symbol>
+
+    <!-- Diamond cluster mark — abstract -->
+    <symbol id="cluster" viewBox="0 0 120 120">
+      <g class="diamond">
+        <rect x="50" y="2" width="16" height="16" transform="rotate(45 58 10)"/>
+        <rect x="2" y="50" width="16" height="16" transform="rotate(45 10 58)"/>
+        <rect x="50" y="50" width="16" height="16" transform="rotate(45 58 58)"/>
+        <rect x="98" y="50" width="16" height="16" transform="rotate(45 106 58)"/>
+        <rect x="50" y="98" width="16" height="16" transform="rotate(45 58 106)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ============================================================
+     01 · COVER
+     ============================================================ -->
+<section class="cover" data-screen-label="01 Cover">
+  <span class="crosshair ch-tl"></span>
+  <span class="crosshair ch-tr"></span>
+  <span class="crosshair ch-bl"></span>
+  <span class="crosshair ch-br"></span>
+
+  <div class="top">
+    <div>
+      <div>كتاب الهوية البصرية</div>
+      <div style="margin-top:4px;opacity:.55">المجلد الأول · النسخة ١.٠</div>
+    </div>
+    <div class="right">
+      <div>Brand Identity Guidelines</div>
+      <div style="margin-top:4px;opacity:.55">Volume I · v1.0 · MMXXVI</div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <svg class="mark-svg" viewBox="0 0 1000 360" aria-label="Qabeela wordmark"><use href="#wm-primary"/></svg>
+  </div>
+
+  <div class="bottom">
+    <div>
+      <div style="font-family:var(--ar-display);font-size:18px;letter-spacing:0">قبيلة — انتماءٌ صُنع بعناية</div>
+    </div>
+    <div class="doc">
+      <div>For internal &amp; partner use</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     02 · MANIFESTO
+     ============================================================ -->
+<section class="manifesto" data-screen-label="02 Manifesto">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٢ ·</span> &nbsp; البيان</span>
+      <span class="label-en">02 · The Manifesto</span>
+    </div>
+
+    <div class="grid-12">
+      <div class="lead">
+        <blockquote>
+          القبيلة ليست مكاناً، بل اتفاقٌ على ذوقٍ مشترك. نَجمع الحِرفة بالحداثة، ونصنع من الأشياء البسيطة شعوراً بالانتماء.
+        </blockquote>
+
+        <p class="lede" style="margin-top:48px">
+          «قبيلة» علامةٌ تجمع ما هو محليٌّ صادق بما هو معاصرٌ مصقول. الاسم يحمل ميراث الجماعة، والشعار يحمل هندسة الكوفي الحديث: حدودٌ حادة، إيقاعٌ ثابت، وومضات ذهبية كأنها نقاط على سطر شِعر.
+        </p>
+      </div>
+
+      <div class="side">
+        <dl class="pair">
+          <dt>المعنى</dt>
+          <dd>جماعةٌ تجمعها قيمةٌ ولونٌ وذوق — لا دم.</dd>
+        </dl>
+        <dl class="pair">
+          <dt>الصوت</dt>
+          <dd>هادئ، واثق، مُحتفى به. يقول الكثير بالقليل.</dd>
+        </dl>
+        <dl class="pair en">
+          <dt>Essence</dt>
+          <dd>Craft, kinship, and quiet confidence. A modern tribe with sharp edges and warm light.</dd>
+        </dl>
+        <dl class="pair en">
+          <dt>Promise</dt>
+          <dd>Everything we make should feel like it belongs to someone, and to a someones.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     03 · THE MARK
+     ============================================================ -->
+<section class="mark" data-screen-label="03 The Mark">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٣ ·</span> &nbsp; الشعار الرئيسي</span>
+      <span class="label-en">03 · The Primary Wordmark</span>
+    </div>
+
+    <h2 class="ar-h">شعارٌ مَصقول.
+      <span class="small">A wordmark refined — geometry, weight, rhythm.</span>
+    </h2>
+    <p class="lede" style="margin-bottom:48px">
+      أُعيدت معمارية الحروف على شبكة هندسية صارمة: عرضٌ موحّد للأقلام، نقاطٌ ماسية متطابقة، وتوازنٌ بصري دقيق بين «ق» و«ة» على الطرفين.
+    </p>
+
+    <div class="display">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+      <svg viewBox="0 0 1000 360" aria-label="Refined wordmark"><use href="#wm-primary"/></svg>
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <div class="k">01 · الكتابة</div>
+        <div class="v">كوفيٌّ حديث، وزن ثقيل (700). نهايات حادّة قائمة الزوايا.</div>
+      </div>
+      <div class="note">
+        <div class="k">02 · النقاط</div>
+        <div class="v">مُعاد رسمها كمعيناتٍ هندسية ذهبية متطابقة الحجم.</div>
+      </div>
+      <div class="note">
+        <div class="k">03 · اللاتيني</div>
+        <div class="v">عنوانٌ صغير «QABEELA» بتباعدٍ واسع تحت خطٍّ رقيق.</div>
+      </div>
+      <div class="note en">
+        <div class="k">04 · Optical balance</div>
+        <div class="v en">Right and left letterforms set to equal optical mass so the mark reads as a single block, not a sentence.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     04 · CONSTRUCTION
+     ============================================================ -->
+<section class="construct" data-screen-label="04 Construction">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٤ ·</span> &nbsp; التركيب والشبكة</span>
+      <span class="label-en">04 · Construction Grid</span>
+    </div>
+
+    <h2 class="ar-h">على شبكةٍ صارمة.
+      <span class="small">Every diamond, dot and stroke aligns to the grid.</span>
+    </h2>
+
+    <div class="stage">
+      <div class="grid-overlay"></div>
+      <div class="axes"></div>
+      <svg viewBox="0 0 1000 360" aria-label="Construction"><use href="#wm-primary"/></svg>
+    </div>
+
+    <div class="legend">
+      <div class="item">
+        <div class="num">X</div>
+        <div class="lbl">وحدة القياس · X-Unit</div>
+        <div class="desc">قُطر المعين الذهبي. كل المسافات في الشعار من مضاعفات هذه الوحدة.</div>
+      </div>
+      <div class="item">
+        <div class="num">2X</div>
+        <div class="lbl">سُمك القلم · Stroke</div>
+        <div class="desc">عرضٌ موحّد لأقلام الحروف عبر الكلمة كاملةً، مع تشذيب الأركان بـ ٠٫٢X.</div>
+      </div>
+      <div class="item">
+        <div class="num">6X</div>
+        <div class="lbl">ارتفاع الحرف · Cap height</div>
+        <div class="desc">الحروف الصاعدة (ل) ترتفع 8X؛ الكلمة كلها داخل صندوقٍ ٢٤X × ٦X.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     05 · VARIATIONS
+     ============================================================ -->
+<section class="variations" data-screen-label="05 Variations">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٥ ·</span> &nbsp; التنويعات</span>
+      <span class="label-en">05 · Lockups &amp; Variations</span>
+    </div>
+
+    <h2 class="ar-h">عائلة واحدة، صياغات.
+      <span class="small">Six certified lockups for every surface.</span>
+    </h2>
+
+    <div class="var-grid" style="margin-top:48px">
+      <div class="var cream span-3">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl">أساسي</span>
+        <span class="lbl-en">01 · Primary</span>
+      </div>
+      <div class="var ink span-3">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl" style="color:rgba(242,234,218,.6)">معكوس</span>
+        <span class="lbl-en" style="color:rgba(242,234,218,.6)">02 · Reverse</span>
+      </div>
+      <div class="var cream-2 span-2">
+        <svg viewBox="0 0 1000 280"><use href="#wm-word"/></svg>
+        <span class="lbl">كلمة فقط</span>
+        <span class="lbl-en">03 · Word only</span>
+      </div>
+      <div class="var ochre span-2">
+        <svg viewBox="0 0 600 600"><use href="#wm-stack"/></svg>
+        <span class="lbl">مكدّس</span>
+        <span class="lbl-en">04 · Stacked</span>
+      </div>
+      <div class="var mono-ink cream span-2 mark-only">
+        <svg viewBox="0 0 360 360"><use href="#wm-monogram"/></svg>
+        <span class="lbl">رمز · ق</span>
+        <span class="lbl-en">05 · Monogram</span>
+      </div>
+      <div class="var mono-cream span-3 mark-only">
+        <svg viewBox="0 0 120 120"><use href="#cluster"/></svg>
+        <span class="lbl" style="color:rgba(242,234,218,.6)">عُنقود الماس</span>
+        <span class="lbl-en" style="color:rgba(242,234,218,.6)">06 · Diamond cluster</span>
+      </div>
+      <div class="var cream span-3">
+        <svg viewBox="0 0 1000 280" style="width:55%"><use href="#wm-word"/></svg>
+        <span class="lbl">مصغّر للأيقونة</span>
+        <span class="lbl-en">07 · Favicon scale</span>
+      </div>
+
+      <!-- additional colorways -->
+      <div class="var clay-bg span-2">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl" style="color:rgba(242,234,218,.7)">طين على رمل</span>
+        <span class="lbl-en" style="color:rgba(242,234,218,.7)">08 · Clay</span>
+      </div>
+      <div class="var moss-bg span-2">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl" style="color:rgba(242,234,218,.7)">نَدى</span>
+        <span class="lbl-en" style="color:rgba(242,234,218,.7)">09 · Moss</span>
+      </div>
+      <div class="var ochre-ink span-2">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl">ذهبٌ معكوس</span>
+        <span class="lbl-en">10 · Ochre inverse</span>
+      </div>
+      <div class="var cream-ochre span-3">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl">ذهبٌ على رمل</span>
+        <span class="lbl-en">11 · Gilded</span>
+      </div>
+      <div class="var ink-clay span-3">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl" style="color:rgba(242,234,218,.7)">حبرٌ ولهبٌ طيني</span>
+        <span class="lbl-en" style="color:rgba(242,234,218,.7)">12 · Ember</span>
+      </div>
+      <div class="var cream-moss span-3">
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl">نَدى على رمل</span>
+        <span class="lbl-en">13 · Sage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     06 · CLEAR SPACE
+     ============================================================ -->
+<section class="clearspace" data-screen-label="06 Clear Space">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٦ ·</span> &nbsp; المساحة الآمنة والحد الأدنى</span>
+      <span class="label-en">06 · Clear Space &amp; Minimum Sizes</span>
+    </div>
+
+    <div class="row grid-2" style="align-items:start">
+      <div>
+        <h2 class="ar-h">دَع له فراغاً.
+          <span class="small">Breathing room equals one X-unit on every side.</span>
+        </h2>
+        <p class="lede">
+          المساحة الآمنة حول الشعار تساوي قُطر المعين الذهبي (X). لا يُسمح بوضع أي عنصر — نصاً كان أم رسماً — داخل هذا الإطار. الحد الأدنى لعرض الشعار الكامل ٤٠ ملم في الطباعة و ١٢٠ بكسل على الشاشة.
+        </p>
+
+        <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:480px">
+          <div style="border:1px solid var(--line);padding:16px">
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ochre-deep);text-transform:uppercase">طباعة</div>
+            <div style="font-family:var(--ar-display);font-weight:600;font-size:32px;margin-top:6px">40 mm</div>
+            <div style="font-family:var(--ar-text);font-size:13px;color:var(--stone)">عرض أدنى للشعار الأفقي</div>
+          </div>
+          <div style="border:1px solid var(--line);padding:16px">
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ochre-deep);text-transform:uppercase">شاشة</div>
+            <div style="font-family:var(--ar-display);font-weight:600;font-size:32px;margin-top:6px;direction:ltr;text-align:right">120 px</div>
+            <div style="font-family:var(--ar-text);font-size:13px;color:var(--stone)">عرض أدنى رقمياً</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="cs-frame">
+          <div class="inner">
+            <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     07 · MISUSE
+     ============================================================ -->
+<section class="misuse" data-screen-label="07 Misuse">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٧ ·</span> &nbsp; الاستخدامات الممنوعة</span>
+      <span class="label-en">07 · Don'ts</span>
+    </div>
+
+    <h2 class="ar-h">لا تفعل.
+      <span class="small">Four ways the mark must never appear.</span>
+    </h2>
+
+    <div class="mis-grid" style="margin-top:48px">
+      <div class="mis skew">
+        <div class="x">×</div>
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <div class="cap">لا تُمِل الشعار أو تُحرّفه.</div>
+      </div>
+      <div class="mis stretch">
+        <div class="x">×</div>
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <div class="cap">لا تُغيّر نسبه أفقياً أو رأسياً.</div>
+      </div>
+      <div class="mis rotate">
+        <div class="x">×</div>
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <div class="cap">لا تُدوّر الشعار. يبقى أفقياً دائماً.</div>
+      </div>
+      <div class="mis color">
+        <div class="x">×</div>
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <div class="cap">لا تستبدل ألوان الهوية بألوانٍ غير معتمدة.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     08 · COLOR
+     ============================================================ -->
+<section class="palette" data-screen-label="08 Palette">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٨ ·</span> &nbsp; لوحة الألوان</span>
+      <span class="label-en">08 · Color System</span>
+    </div>
+
+    <h2 class="ar-h">حِبرٌ، رملٌ، ذهب.
+      <span class="small">Ink, Sand, Ochre — and three companions.</span>
+    </h2>
+    <p class="lede">
+      لوحةٌ مستوحاة من ألوان البادية في أوقات النهار: حِبر العشاء، رمل الفجر، وذهب العصر. تُضاف إليها لمسة طينٍ دافئ، لون نباتٍ صحراوي، وحجر الطريق.
+    </p>
+
+    <div class="swatches" style="margin-top:48px">
+      <div class="sw sw-ink dark">
+        <div>
+          <div class="pill">أساسي / 60%</div>
+          <div class="name" style="margin-top:14px">حِبر</div>
+          <div class="name-en">Ink</div>
+        </div>
+        <div class="meta">
+          HEX · #16130E<br/>
+          RGB · 22 / 19 / 14<br/>
+          CMYK · 60 / 60 / 70 / 90<br/>
+          PMS · Black 6 C
+        </div>
+      </div>
+      <div class="sw sw-cream light">
+        <div>
+          <div class="pill">أساسي / 25%</div>
+          <div class="name" style="margin-top:14px">رمل</div>
+          <div class="name-en">Sand</div>
+        </div>
+        <div class="meta">
+          HEX · #F2EADA<br/>
+          RGB · 242 / 234 / 218<br/>
+          CMYK · 4 / 6 / 14 / 0<br/>
+          PMS · 9143 C
+        </div>
+      </div>
+      <div class="sw sw-ochre dark">
+        <div>
+          <div class="pill">مميّز / 10%</div>
+          <div class="name" style="margin-top:14px">ذهب</div>
+          <div class="name-en">Ochre</div>
+        </div>
+        <div class="meta">
+          HEX · #B58543<br/>
+          RGB · 181 / 133 / 67<br/>
+          CMYK · 28 / 48 / 86 / 12<br/>
+          PMS · 7559 C
+        </div>
+      </div>
+      <div class="sw sw-clay dark">
+        <div>
+          <div class="pill">ثانوي / 2%</div>
+          <div class="name" style="margin-top:14px">طين</div>
+          <div class="name-en">Clay</div>
+        </div>
+        <div class="meta">
+          HEX · #A14A2E<br/>
+          RGB · 161 / 74 / 46<br/>
+          CMYK · 27 / 79 / 90 / 23<br/>
+          PMS · 7586 C
+        </div>
+      </div>
+      <div class="sw sw-moss dark">
+        <div>
+          <div class="pill">ثانوي / 2%</div>
+          <div class="name" style="margin-top:14px">نَدى</div>
+          <div class="name-en">Moss</div>
+        </div>
+        <div class="meta">
+          HEX · #4A5240<br/>
+          RGB · 74 / 82 / 64<br/>
+          CMYK · 65 / 47 / 75 / 50<br/>
+          PMS · 5743 C
+        </div>
+      </div>
+      <div class="sw sw-stone dark">
+        <div>
+          <div class="pill">محايد / 1%</div>
+          <div class="name" style="margin-top:14px">حَجر</div>
+          <div class="name-en">Stone</div>
+        </div>
+        <div class="meta">
+          HEX · #8C8275<br/>
+          RGB · 140 / 130 / 117<br/>
+          CMYK · 45 / 44 / 53 / 18<br/>
+          PMS · 7531 C
+        </div>
+      </div>
+    </div>
+
+    <!-- ratio bar -->
+    <div style="margin-top:64px">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:rgba(242,234,218,.7);text-transform:uppercase;margin-bottom:14px;direction:ltr">Recommended distribution</div>
+      <div class="ratios">
+        <span class="seg" style="background:#16130E;flex:60"></span>
+        <span class="seg" style="background:#F2EADA;flex:25"></span>
+        <span class="seg" style="background:#B58543;flex:10"></span>
+        <span class="seg" style="background:#A14A2E;flex:2"></span>
+        <span class="seg" style="background:#4A5240;flex:2"></span>
+        <span class="seg" style="background:#8C8275;flex:1"></span>
+      </div>
+      <div class="ratio-labels">
+        <span>Ink 60</span><span>Sand 25</span><span>Ochre 10</span><span>Clay 2</span><span>Moss 2</span><span>Stone 1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     09 · TYPOGRAPHY
+     ============================================================ -->
+<section class="type" data-screen-label="09 Typography">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">٠٩ ·</span> &nbsp; نظام الطباعة</span>
+      <span class="label-en">09 · Typography</span>
+    </div>
+
+    <h2 class="ar-h">خطّان عربيّان، خطّان لاتينيّان.
+      <span class="small">A bilingual system, balanced by weight and rhythm.</span>
+    </h2>
+
+    <div class="type-row">
+      <div class="meta">
+        Display · Arabic
+        <span class="name" style="font-family:var(--ar-display);font-weight:700">Reem Kufi</span>
+        <span class="role">للعناوين الكبيرة، اسم العلامة، ولافتاتٍ ذات أثر.</span>
+      </div>
+      <div>
+        <div class="specimen-ar-display">قبيلةٌ من ضوء.</div>
+        <div class="glyph-row">
+          <span>ا</span><span>ب</span><span>ت</span><span>ث</span><span>ج</span><span>ح</span><span>خ</span>
+          <span>د</span><span>ذ</span><span>ر</span><span>ز</span><span>س</span><span>ش</span><span>ص</span>
+        </div>
+        <div class="scale-row">
+          <div class="item">Display XL<span class="px">120 / 110</span></div>
+          <div class="item">Display L<span class="px">84 / 78</span></div>
+          <div class="item">Display M<span class="px">56 / 54</span></div>
+          <div class="item">Heading<span class="px">36 / 38</span></div>
+          <div class="item">Sub<span class="px">24 / 28</span></div>
+          <div class="item">Caption<span class="px">14 / 18</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="meta">
+        Text · Arabic
+        <span class="name" style="font-family:var(--ar-text);font-weight:600">IBM Plex Sans Arabic</span>
+        <span class="role">للنصوص الطويلة والمقالات، 400–600. مقروء على الشاشة والورق.</span>
+      </div>
+      <div>
+        <div class="specimen-ar-text">
+          نَكتب كما نَتكلم: بهدوء، بثقة، وباحترامٍ للقارئ. الجمل قصيرة حين يُطلب منها الوضوح، طويلةٌ حين تستحق المعنى. لا نزخرف بلا سبب، ولا نَختصر إن كان الاختصار يُخلّ بالمعنى.
+        </div>
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="meta">
+        Display · Latin
+        <span class="name">Bricolage Grotesque</span>
+        <span class="role">For Latin display, sub-headings, and editorial counterparts.</span>
+      </div>
+      <div>
+        <div class="specimen-en-display">A tribe of light.</div>
+        <div class="glyph-row en">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span>
+          <span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="meta">
+        Text · Latin
+        <span class="name">Manrope</span>
+        <span class="role">For Latin body, captions, and UI labels. 300–600.</span>
+      </div>
+      <div>
+        <div class="specimen-en-text">
+          We write the way we speak: quietly, confidently, with respect for the reader. Sentences are short when clarity is wanted, long when meaning earns the room. No ornament without reason; no shortening that strips the point.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     10 · PATTERN SYSTEM
+     ============================================================ -->
+<section class="pattern" data-screen-label="10 Pattern">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">١٠ ·</span> &nbsp; نظام النقشات</span>
+      <span class="label-en">10 · Pattern System</span>
+    </div>
+
+    <h2 class="ar-h">من نقطةٍ، نسيج.
+      <span class="small">A pattern system built from a single diamond.</span>
+    </h2>
+    <p class="lede">
+      المعين الذهبي هو الذرّة. منه تنبت ثلاث نقشاتٍ — للأغلفة، للأقمشة، وللخلفيات الرقمية.</p>
+
+    <div class="pattern-grid" style="margin-top:48px">
+      <!-- pattern 1: dense grid -->
+      <div class="pat">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="200" fill="#16130E"/>
+          <g fill="#B58543">
+            <!-- repeating diamonds -->
+            <g id="row">
+              <rect x="14" y="14" width="12" height="12" transform="rotate(45 20 20)"/>
+              <rect x="44" y="14" width="12" height="12" transform="rotate(45 50 20)"/>
+              <rect x="74" y="14" width="12" height="12" transform="rotate(45 80 20)"/>
+              <rect x="104" y="14" width="12" height="12" transform="rotate(45 110 20)"/>
+              <rect x="134" y="14" width="12" height="12" transform="rotate(45 140 20)"/>
+              <rect x="164" y="14" width="12" height="12" transform="rotate(45 170 20)"/>
+            </g>
+            <use href="#row" y="30"/>
+            <use href="#row" y="60"/>
+            <use href="#row" y="90"/>
+            <use href="#row" y="120"/>
+            <use href="#row" y="150"/>
+          </g>
+        </svg>
+        <span class="cap">01 · العنقود · cluster</span>
+      </div>
+
+      <!-- pattern 2: large spaced -->
+      <div class="pat light">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="200" fill="#F2EADA"/>
+          <!-- thin lines forming diamond grid -->
+          <g stroke="#16130E" stroke-width=".6" opacity=".25" fill="none">
+            <path d="M0 50 L50 0 L100 50 L50 100 Z"/>
+            <path d="M100 50 L150 0 L200 50 L150 100 Z"/>
+            <path d="M0 150 L50 100 L100 150 L50 200 Z"/>
+            <path d="M100 150 L150 100 L200 150 L150 200 Z"/>
+          </g>
+          <g fill="#B58543">
+            <rect x="44" y="44" width="12" height="12" transform="rotate(45 50 50)"/>
+            <rect x="144" y="44" width="12" height="12" transform="rotate(45 150 50)"/>
+            <rect x="44" y="144" width="12" height="12" transform="rotate(45 50 150)"/>
+            <rect x="144" y="144" width="12" height="12" transform="rotate(45 150 150)"/>
+            <rect x="94" y="94" width="14" height="14" transform="rotate(45 101 101)" fill="#16130E"/>
+          </g>
+        </svg>
+        <span class="cap">02 · المَجلس · majlis</span>
+      </div>
+
+      <!-- pattern 3: caravan stripe -->
+      <div class="pat light">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="200" fill="#B58543"/>
+          <g fill="#16130E">
+            <rect x="0" y="20" width="200" height="2"/>
+            <rect x="0" y="60" width="200" height="2"/>
+            <rect x="0" y="100" width="200" height="2"/>
+            <rect x="0" y="140" width="200" height="2"/>
+            <rect x="0" y="180" width="200" height="2"/>
+            <!-- diamonds on alternating rows -->
+            <rect x="20" y="36" width="10" height="10" transform="rotate(45 25 41)"/>
+            <rect x="60" y="36" width="10" height="10" transform="rotate(45 65 41)"/>
+            <rect x="100" y="36" width="10" height="10" transform="rotate(45 105 41)"/>
+            <rect x="140" y="36" width="10" height="10" transform="rotate(45 145 41)"/>
+            <rect x="180" y="36" width="10" height="10" transform="rotate(45 185 41)"/>
+
+            <rect x="0" y="116" width="10" height="10" transform="rotate(45 5 121)"/>
+            <rect x="40" y="116" width="10" height="10" transform="rotate(45 45 121)"/>
+            <rect x="80" y="116" width="10" height="10" transform="rotate(45 85 121)"/>
+            <rect x="120" y="116" width="10" height="10" transform="rotate(45 125 121)"/>
+            <rect x="160" y="116" width="10" height="10" transform="rotate(45 165 121)"/>
+          </g>
+        </svg>
+        <span class="cap">03 · القافلة · caravan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     11 · APPLICATIONS
+     ============================================================ -->
+<section class="apps" data-screen-label="11 Applications">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">١١ ·</span> &nbsp; التطبيقات</span>
+      <span class="label-en">11 · Applications</span>
+    </div>
+
+    <h2 class="ar-h">من بطاقةٍ إلى لافتة.
+      <span class="small">From a business card to a storefront — the system holds.</span>
+    </h2>
+
+    <div class="apps-grid" style="margin-top:48px">
+
+      <!-- Business cards (pair) -->
+      <div class="bc-row">
+        <div class="card">
+          <div class="top">
+            <div>
+              <div class="name">سَلمى الحارثي</div>
+              <div class="role">مديرة الإبداع</div>
+            </div>
+            <div class="corner-mark"><i></i><i></i></div>
+          </div>
+          <div class="bottom">
+            <span>salma@qabeela.studio · +966 5x xxx xx</span>
+            <span class="word">قبيلة</span>
+          </div>
+        </div>
+        <div class="card dark">
+          <div class="top">
+            <div>
+              <div class="name" style="color:var(--cream)">قبيلة</div>
+              <div class="role" style="color:rgba(242,234,218,.6);font-family:var(--en-display);direction:ltr">Studio · Riyadh · MMXXVI</div>
+            </div>
+            <div class="corner-mark"><i></i><i></i><i></i></div>
+          </div>
+          <div class="bottom" style="color:rgba(242,234,218,.7)">
+            <span>qabeela.studio</span>
+            <span style="font-family:var(--mono);direction:ltr">01 / 06</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packaging tag -->
+      <div class="pkg ink">
+        <div class="top">
+          <div class="label-en">Edition 02 · Aged Oak</div>
+          <div class="stamp">ق</div>
+        </div>
+        <div>
+          <div class="word">قبيلة</div>
+          <div style="font-family:var(--ar-text);font-size:14px;color:rgba(242,234,218,.7);margin-top:14px;max-width:32ch;line-height:1.7">
+            عطرٌ ترابي من الخشب المُعتَّق، يَحمل دفء جلسات النار.
+          </div>
+        </div>
+        <div class="bottom" style="color:rgba(242,234,218,.6)">
+          <span>50 ML · EAU DE PARFUM</span>
+          <span>№ 042 / 500</span>
+        </div>
+      </div>
+
+      <!-- Social tiles -->
+      <div class="social cream">
+        <div class="badge" style="color:var(--ochre-deep)">جديد · 01</div>
+        <div>
+          <div class="h" style="font-size:48px;line-height:1">من ضوء العَصر،<br/>إلى ظِلِّ المساء.</div>
+        </div>
+        <div class="sub">إصدار خريف ٢٠٢٦ — متوفر الآن في المتجر.</div>
+      </div>
+
+      <div class="social ink">
+        <div class="badge" style="color:var(--ochre)">سَرد · 02</div>
+        <div>
+          <div class="h">«القبيلة<br/>ذوقٌ مشترك.»</div>
+        </div>
+        <div class="sub" style="color:rgba(242,234,218,.6)">— من بيان العلامة، ٢٠٢٦</div>
+      </div>
+
+      <div class="social ochre">
+        <div class="badge">دعوة · 03</div>
+        <div>
+          <div class="h">انضمّ إلى<br/>القبيلة.</div>
+        </div>
+        <div class="sub" style="color:var(--ink);opacity:.7">نشرةٌ شهرية، حروفٌ مختارة، وامتيازاتٌ خاصة.</div>
+      </div>
+
+      <!-- Signage / hero banner -->
+      <div class="sign">
+        <svg class="pattern-bg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="#B58543">
+            <rect x="50" y="50" width="14" height="14" transform="rotate(45 57 57)"/>
+            <rect x="150" y="50" width="14" height="14" transform="rotate(45 157 57)"/>
+            <rect x="250" y="50" width="14" height="14" transform="rotate(45 257 57)"/>
+            <rect x="950" y="50" width="14" height="14" transform="rotate(45 957 57)"/>
+            <rect x="1050" y="50" width="14" height="14" transform="rotate(45 1057 57)"/>
+            <rect x="1150" y="50" width="14" height="14" transform="rotate(45 1157 57)"/>
+            <rect x="50" y="330" width="14" height="14" transform="rotate(45 57 337)"/>
+            <rect x="150" y="330" width="14" height="14" transform="rotate(45 157 337)"/>
+            <rect x="950" y="330" width="14" height="14" transform="rotate(45 957 337)"/>
+            <rect x="1050" y="330" width="14" height="14" transform="rotate(45 1057 337)"/>
+            <rect x="1150" y="330" width="14" height="14" transform="rotate(45 1157 337)"/>
+          </g>
+        </svg>
+        <svg viewBox="0 0 1000 360"><use href="#wm-primary"/></svg>
+        <span class="lbl">12 · Storefront signage · 3m × 1m</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     12 · VOICE & TONE
+     ============================================================ -->
+<section class="voice" data-screen-label="12 Voice">
+  <div class="wrap">
+    <div class="strip">
+      <span><span class="num">١٢ ·</span> &nbsp; الصوت والنبرة</span>
+      <span class="label-en">12 · Voice &amp; Tone</span>
+    </div>
+
+    <div class="grid-12">
+      <div class="lead">
+        <h2 class="ar-h">نقول قليلاً،
+          <br/>نَعني كثيراً.
+          <span class="small">Quiet on the surface, deep underneath.</span>
+        </h2>
+        <p class="lede">
+          نَكتب بِحرفية الشاعر وحَزم الحرفيّ. لا نَزخرف، ولا نَختصر إن كان الاختصار يُسطّح المعنى. كل كلمةٍ تَستحق مكانها.
+        </p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <div class="n">01</div>
+          <div>
+            <div class="title">واثقٌ، لا متعالٍ.<span class="en">Confident, never loud</span></div>
+            <div class="body">نتحدث بثقة من يَعرف، لا من يَستعرض. نُؤكِّد دون أن نُكرّر، ونَصمت حيث الكلام زائد.</div>
+            <div class="pair-row">
+              <div class="col do">
+                <div class="k">نَقول</div>
+                <div class="v">«إصدارٌ من خمسين قطعة فقط.»</div>
+              </div>
+              <div class="col dont">
+                <div class="k">لا نَقول</div>
+                <div class="v">«الأفضل والأندر والأحلى على الإطلاق!»</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="n">02</div>
+          <div>
+            <div class="title">دافئٌ، لا متكلِّف.<span class="en">Warm, not performative</span></div>
+            <div class="body">نُخاطب القارئ كأنه ضَيفٌ في مَجلس: نَنظر في عينيه، ونُسمّيه باسمه. اللغة قريبة، لكنها ليست عامية.</div>
+            <div class="pair-row">
+              <div class="col do">
+                <div class="k">نَقول</div>
+                <div class="v">«تَفضّل، اخترنا لك هذا.»</div>
+              </div>
+              <div class="col dont">
+                <div class="k">لا نَقول</div>
+                <div class="v">«عميلنا العزيز، يَسعدنا تواصلكم…»</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="n">03</div>
+          <div>
+            <div class="title">ميراثٌ، لا حنين.<span class="en">Heritage, not nostalgia</span></div>
+            <div class="body">نَحمل من التراث ما يَنفع اليوم — الكوفي، الكَرم، الذوق — ونتركه يَتنفّس في حاضرٍ معاصر. لا نُقلِّد الماضي، نَستلهمه.</div>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="n">04</div>
+          <div>
+            <div class="title">دقيقٌ في التفاصيل.<span class="en">Precise in detail</span></div>
+            <div class="body">نَكتب أرقامنا بالعربية في السياق العربي، ونَستخدم علامات الترقيم بدقة. الفواصل تَستحق الاحترام.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer data-screen-label="13 Colophon">
+  <div class="wrap">
+    <div class="mark-foot">
+      <svg viewBox="0 0 1000 360" aria-label="Qabeela"><use href="#wm-primary"/></svg>
+    </div>
+    <div class="ar-foot">
+      انضمَّ إلى<br/>
+      <span class="ochre">القبيلة.</span>
+    </div>
+    <div class="colophon">
+      <b>Brand Identity Guidelines</b><br/>
+      Volume I · v1.0 · MMXXVI<br/><br/>
+      Designed in Riyadh<br/>
+      For internal &amp; partner use<br/><br/>
+      <b>qabeela.studio</b>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     TWEAKS PANEL — recolors the cover wordmark live
+     ============================================================ -->
+<button class="tweaks-toggle" id="tweaks-toggle" type="button">
+  <span>تخصيص الألوان</span>
+</button>
+
+<aside class="tweaks" id="tweaks" aria-label="Color tweaks">
+  <div class="head" id="tweaks-head">
+    <span>تَخصيص · Cover Mark</span>
+    <button class="x" id="tweaks-close" aria-label="Close">×</button>
+  </div>
+  <div class="body">
+    <div class="section-label">لوحة الشعار · Palette</div>
+    <div class="swatches-grid" id="swatches-grid"></div>
+    <div style="font-family:var(--ar-text);font-size:12px;color:var(--stone);line-height:1.6;border-top:1px solid var(--line);padding-top:12px">
+      اختر توليفة لونية للشعار في الغلاف. تُحفَظ تلقائياً.
+    </div>
+  </div>
+</aside>
+
+<script>
+(function(){
+  // Expand every <use href="#sym"/> into a real <g> clone of the symbol's
+  // children so the --wm-fill / --wm-diamond cascade reaches each <text>
+  // and <rect class="diamond"> directly. CSS custom properties do not
+  // reliably propagate into the shadow tree spawned by <use> in all
+  // engines, so we do the cloning ourselves. Every parent <svg> in this
+  // file shares its viewBox with the referenced symbol, so coordinates
+  // map 1:1 after expansion.
+  (function expandUses(){
+    const uses = document.querySelectorAll('svg use');
+    uses.forEach(use=>{
+      const href = use.getAttribute('href') || use.getAttribute('xlink:href');
+      if(!href || !href.startsWith('#')) return;
+      const sym = document.getElementById(href.slice(1));
+      if(!sym) return;
+      const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+      Array.from(sym.children).forEach(ch=>{
+        g.appendChild(ch.cloneNode(true));
+      });
+      use.parentNode.replaceChild(g, use);
+    });
+  })();
+
+  // EDITMODE-persisted defaults
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "coverPalette": 3
+  }/*EDITMODE-END*/;
+
+  // Curated palette options: [bg, word, diamond, ar-name, en-name]
+  const PALETTES = [
+    {bg:'#F2EADA', word:'#16130E', diamond:'#B58543', ar:'الأساسي',    en:'Classic'},
+    {bg:'#16130E', word:'#F2EADA', diamond:'#B58543', ar:'الليل',       en:'Night'},
+    {bg:'#B58543', word:'#16130E', diamond:'#16130E', ar:'الذهب',       en:'Gold'},
+    {bg:'#A14A2E', word:'#F2EADA', diamond:'#B58543', ar:'الطين',       en:'Clay'},
+    {bg:'#4A5240', word:'#F2EADA', diamond:'#B58543', ar:'نَدى',         en:'Moss'},
+    {bg:'#F2EADA', word:'#A14A2E', diamond:'#4A5240', ar:'الخريف',     en:'Autumn'},
+    {bg:'#EAE0CC', word:'#B58543', diamond:'#A14A2E', ar:'المُذهَّب',    en:'Gilded'},
+    {bg:'#16130E', word:'#B58543', diamond:'#F2EADA', ar:'العَتمة',     en:'Dusk'},
+    {bg:'#F2EADA', word:'#4A5240', diamond:'#B58543', ar:'البَرّ',       en:'Sage'}
+  ];
+
+  const state = Object.assign({}, TWEAK_DEFAULTS);
+  const cover = document.querySelector('.cover');
+  const grid = document.getElementById('swatches-grid');
+  const panel = document.getElementById('tweaks');
+  const toggle = document.getElementById('tweaks-toggle');
+  const closeBtn = document.getElementById('tweaks-close');
+
+  function apply(){
+    const p = PALETTES[state.coverPalette % PALETTES.length];
+    cover.style.setProperty('--cover-bg', p.bg);
+    cover.style.setProperty('--cover-word', p.word);
+    cover.style.setProperty('--cover-diamond', p.diamond);
+    // light/dark text in cover chrome
+    const isDark = p.bg === '#16130E' || p.bg === '#A14A2E' || p.bg === '#4A5240';
+    cover.classList.toggle('dark-bg', isDark);
+    // update active swatch
+    grid.querySelectorAll('.swatch').forEach((el,i)=>{
+      el.classList.toggle('active', i === state.coverPalette);
+    });
+  }
+
+  function buildSwatches(){
+    PALETTES.forEach((p,i)=>{
+      const b = document.createElement('button');
+      b.type='button';
+      b.className='swatch';
+      b.innerHTML = `
+        <div class="preview" style="background:${p.bg}">
+          <span class="mini-dot l" style="background:${p.diamond}"></span>
+          <span class="mini-dot r" style="background:${p.diamond}"></span>
+          <span class="mini-word" style="color:${p.word}">قبيلة</span>
+        </div>
+        <div class="name">${p.ar} · ${p.en}</div>`;
+      b.addEventListener('click',()=>{
+        state.coverPalette = i;
+        apply();
+        try{
+          window.parent.postMessage({type:'__edit_mode_set_keys', edits:{coverPalette:i}}, '*');
+        }catch(e){}
+      });
+      grid.appendChild(b);
+    });
+  }
+
+  // Tweaks host protocol
+  window.addEventListener('message', (e)=>{
+    if(!e.data || typeof e.data !== 'object') return;
+    if(e.data.type === '__activate_edit_mode'){
+      panel.classList.add('open');
+      toggle.classList.remove('visible');
+    } else if(e.data.type === '__deactivate_edit_mode'){
+      panel.classList.remove('open');
+      toggle.classList.remove('visible');
+    }
+  });
+
+  closeBtn.addEventListener('click', ()=>{
+    panel.classList.remove('open');
+    try{
+      window.parent.postMessage({type:'__edit_mode_dismissed'}, '*');
+    }catch(e){}
+  });
+
+  // simple drag for the head
+  (function makeDraggable(){
+    const head = document.getElementById('tweaks-head');
+    let sx=0, sy=0, ox=0, oy=0, dragging=false;
+    head.addEventListener('mousedown', (e)=>{
+      if(e.target.id === 'tweaks-close') return;
+      dragging = true;
+      const r = panel.getBoundingClientRect();
+      ox = r.left; oy = r.top;
+      sx = e.clientX; sy = e.clientY;
+      panel.style.right='auto'; panel.style.bottom='auto';
+      panel.style.left = ox+'px'; panel.style.top = oy+'px';
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e)=>{
+      if(!dragging) return;
+      panel.style.left = (ox + e.clientX - sx) + 'px';
+      panel.style.top  = (oy + e.clientY - sy) + 'px';
+    });
+    window.addEventListener('mouseup', ()=>{ dragging=false; });
+  })();
+
+  buildSwatches();
+  apply();
+
+  // Announce we have tweaks. Listener already registered above.
+  try{
+    window.parent.postMessage({type:'__edit_mode_available'}, '*');
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+export type RootStackParamList = {
+  Landing: undefined;
+  Login: { tenantSlug?: string } | undefined;
+  PlatformAdminLogin: undefined;
+  JoinFamily: { tenantSlug?: string } | undefined;
+  WaitingApproval: { tenantSlug?: string; email?: string; state?: 'pending' | 'approved' | 'rejected' } | undefined;
+  MainTabs: undefined;
+  TenantHome: { tenantSlug?: string } | undefined;
+  Occasions: undefined;
+  FamilyTree: { tenantSlug?: string } | undefined;
+  OccasionDetail: { eventId: string; tenantSlug?: string };
+  AdminDashboard: { tenantSlug?: string } | undefined;
+  AdminApprovals: { tenantSlug?: string; lineageRequestId?: string } | undefined;
+  AdminBranchManagers: { tenantSlug?: string } | undefined;
+  AdminMembers: { tenantSlug?: string } | undefined;
+  SuperAdminDashboard: undefined;
+  Notifications: undefined;
+  TenantDetail: { tenantId: string };
+  Moderation: undefined;
+};

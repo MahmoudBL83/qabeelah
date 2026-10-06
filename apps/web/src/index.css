@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --brand-ink: #111c19;
+  --brand-ochre: #c39c3f;
+  --brand-cream: #f2eada;
+  --brand-cream-2: #fbf6ee;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .opacity-4 {
+    opacity: 0.04;
+  }
+    .opacity-5 {
+      opacity: 0.05;
+    }
+    .opacity-6 {
+      opacity: 0.06;
+    }
+
+    .opacity-10 {
+      opacity: 0.1;
+    }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-arabic antialiased;
+    color-scheme: light;
+    background-color: var(--brand-cream-2);
+  }
+}

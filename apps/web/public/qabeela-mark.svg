@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" aria-label="Qabeela monogram">
+  <defs>
+    <style>
+      .diamond{fill:#c39c3f}
+      .word-mark{fill:#d7b86b;font-family:Reem Kufi, 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;font-weight:700}
+    </style>
+  </defs>
+  <rect width="360" height="360" rx="28" fill="#111c19" />
+  <g class="diamond">
+    <rect x="148" y="22" width="22" height="22" transform="rotate(45 159 33)" />
+    <rect x="190" y="22" width="22" height="22" transform="rotate(45 201 33)" />
+  </g>
+  <text x="180" y="270" text-anchor="middle" class="word-mark" font-size="220">ق</text>
+</svg>

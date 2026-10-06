@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Qabila",
+    "slug": "qabila-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/qabeela-logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#fbf9f4"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/qabeela-logo.png",
+        "backgroundColor": "#fbf9f4"
+      }
+    },
+    "web": {
+      "favicon": "./assets/qabeela-logo.png"
+    }
+  }
+}
