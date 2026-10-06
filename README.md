@@ -1,5 +1,9 @@
 # Qabeela
 
+[Live web app on Vercel](https://qabeelah-web-2.vercel.app)
+
+The hosted web app needs a MongoDB-backed API for sign-in and live data.
+
 Qabeela is a full-stack family community platform for preserving family history and coordinating members across branches. It combines an interactive family tree with member accounts, branch administration, events, notifications, messaging, lineage requests, file uploads, and a platform administration area.
 
 The repository is a TypeScript monorepo with three applications:
