@@ -18,7 +18,7 @@ jobs:
       - name: Install
         run: corepack enable && pnpm install --frozen-lockfile --ignore-scripts
       - name: Run API tests
-        run: pnpm --filter api build && pnpm --filter api test
+        run: pnpm --filter api build && pnpm --filter api test -- --runInBand --forceExit
 
   web-build:
     runs-on: ubuntu-latest
